@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erick Aedo · Desarrollador Full-Stack & Diseñador UX/UI en Chile</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta name="description" content="Desarrollador Full-Stack y diseñador UX/UI con más de 14 años en diseño y 7 en desarrollo web. Creo productos digitales funcionales, atractivos y orientados a resultados para empresas y pymes en Chile.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://erick-aedo.cl">
+
+  <meta property="og:title" content="Erick Aedo · Desarrollador Full-Stack & Diseñador UX/UI">
+  <meta property="og:description" content="Perfil end-to-end en diseño, desarrollo y estrategia digital. Ayudo a empresas y pymes a construir productos digitales que funcionan y convierten.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erick-aedo.cl">
+  <meta property="og:image" content="https://erick-aedo.cl/og-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Erick Aedo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Erick Aedo · Desarrollador Full-Stack & Diseñador UX/UI">
+  <meta name="twitter:description" content="Perfil end-to-end en diseño, desarrollo y estrategia digital para empresas y pymes en Chile.">
+  <meta name="twitter:image" content="https://erick-aedo.cl/og-home.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Erick Aedo",
+    "jobTitle": "Desarrollador Full-Stack y Diseñador UX/UI",
+    "url": "https://erick-aedo.cl",
+    "sameAs": [
+      "https://www.linkedin.com/in/erick-aedo/",
+      "https://github.com/erick-aedo-fullstack"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santiago",
+      "addressCountry": "CL"
+    }
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Trabajas de forma independiente o también estás disponible para contratación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Las dos cosas. Trabajo de forma independiente con empresas y pymes que necesitan un perfil digital completo para proyectos puntuales o continuos. Al mismo tiempo, estoy abierto a oportunidades de contratación en equipos donde pueda aportar desde el diseño UX/UI, el desarrollo front-end o la estrategia digital."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué tipo de proyectos digitales desarrollas y con qué tecnologías?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trabajo en landing pages, sitios corporativos, e-commerce y productos digitales a medida. Stack principal: HTML5, CSS3, JavaScript, PHP con MySQL. Plataformas: Shopify, Modyo y Salesforce."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo toma desarrollar un sitio web o producto digital?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Landing page: 1–2 semanas. Sitio corporativo con UX/UI: 3–6 semanas. Producto digital complejo: 6–12 semanas. Tiempos incluyen investigación, diseño, desarrollo y una ronda de ajustes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿En qué se diferencia trabajar con un perfil full-stack frente a contratar diseñador y desarrollador por separado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La diferencia está en la coherencia y la velocidad. Un perfil que diseña y desarrolla elimina la brecha de interpretación entre ambas disciplinas, reduce fricciones y entrega un producto más cohesionado en menos tiempo."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <div class="header-wrap">
+
+    <?php include 'header.html'; ?>
+
+  </div>
+
+  <?php include 'hero.html'; ?>
+
+  <?php include 'sobre-mi.html'; ?>
+
+  <?php include 'mi-stack.html'; ?>
+
+  <?php include 'banner.html'; ?>
+
+  <?php include 'proyectos.html'; ?>
+
+  <?php include 'como-trabajo.html'; ?>
+
+  <?php include 'marcas.html'; ?>
+
+  <?php include 'preguntas.html'; ?>
+
+  <?php include 'accion.html'; ?>
+
+  <?php include 'footer.html'; ?>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

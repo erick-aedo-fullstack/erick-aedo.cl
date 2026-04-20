@@ -1,0 +1,259 @@
+
+<section class="contacto" id="contacto">
+
+  <img
+    src="https://erick-aedo.cl/assent/separador-top.svg"
+    alt=""
+    class="contacto__separador contacto__separador--top"
+    aria-hidden="true"
+  >
+
+  <div class="contacto__wrap">
+   <form class="contacto__form" id="form-contacto"
+      action="https://erick-aedo.cl/enviar-contacto.php" method="post">
+
+      <fieldset class="contacto__group">
+        <legend class="contacto__legend">¿QUIÉN ERES?</legend>
+
+        <div class="contacto__radio-grid">
+          <label class="radio-card">
+            <input type="radio" name="quien_eres" value="Emprendedor" required>
+            <span class="radio-card__control"></span>
+            <span class="radio-card__text">Emprendedor</span>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="quien_eres" value="Pyme" required>
+            <span class="radio-card__control"></span>
+            <span class="radio-card__text">Pyme</span>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="quien_eres" value="Empresa" required>
+            <span class="radio-card__control"></span>
+            <span class="radio-card__text">Empresa</span>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" name="quien_eres" value="Reclutador de RRHH" required>
+            <span class="radio-card__control"></span>
+            <span class="radio-card__text">Reclutador de RRHH</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="contacto__grid">
+        <div class="field">
+          <input class="field__control" type="text" id="nombre" name="nombre" placeholder=" " required>
+          <label class="field__label" for="nombre">Nombre</label>
+          <button type="button" class="field__clear" aria-label="Borrar campo">×</button>
+        </div>
+
+        <div class="field">
+          <input
+            class="field__control"
+            type="email"
+            id="email"
+            name="email"
+            placeholder=" "
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            required
+            oninvalid="this.setCustomValidity('Ingresa un correo válido (ej: nombre@correo.cl)')"
+            oninput="this.setCustomValidity('')"
+          >
+          <label class="field__label" for="email">Email</label>
+          <button type="button" class="field__clear" aria-label="Borrar campo">×</button>
+        </div>
+
+        <div class="field">
+          <input
+            class="field__control"
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder=" "
+            inputmode="numeric"
+            autocomplete="tel"
+            required
+          >
+          <label class="field__label" for="telefono">Teléfono</label>
+          <button type="button" class="field__clear" aria-label="Borrar campo">×</button>
+        </div>
+
+        <div class="field">
+          <input class="field__control" type="text" id="empresa" name="empresa" placeholder=" " required>
+          <label class="field__label" for="empresa">Nombre negocio</label>
+          <button type="button" class="field__clear" aria-label="Borrar campo">×</button>
+        </div>
+      </div>
+
+      <div class="field field--full field--select">
+        <select class="field__control field__control--select" id="motivo" name="motivo" required>
+          <option value="" selected disabled>Motivo de consulta</option>
+          <option value="Landing page">Landing page</option>
+          <option value="Web corporativa">Web corporativa</option>
+          <option value="E-commerce">E-commerce</option>
+          <option value="UX/UI">UX/UI</option>
+          <option value="Campañas de paid media">Campañas de paid media</option>
+          <option value="Estrategia de marketing digital">Estrategia de marketing digital</option>
+          <option value="Oferta laboral">Oferta laboral</option>
+          <option value="Consultoría">Consultoría</option>
+        </select>
+        <span class="field__arrow"></span>
+      </div>
+
+      <div class="field field--full field--textarea">
+        <textarea class="field__control field__control--textarea" id="mensaje" name="mensaje" placeholder=" " required></textarea>
+        <label class="field__label" for="mensaje">Mensaje libre</label>
+        <button type="button" class="field__clear field__clear--textarea" aria-label="Borrar campo">×</button>
+      </div>
+
+      <div class="contacto__actions">
+        <button class="boton boton-primario" type="submit" id="btn-enviar">
+          Enviar mensaje
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <img
+    src="https://erick-aedo.cl/assent/separador-bottom.svg"
+    alt=""
+    class="contacto__separador contacto__separador--bottom"
+    aria-hidden="true"
+  >
+</section>
+
+<!-- MODAL -->
+<div class="modal-contacto" id="modal-contacto" aria-hidden="true">
+  <div class="modal-contacto__overlay"></div>
+
+  <div class="modal-contacto__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-contacto-titulo">
+    <button class="modal-contacto__close" id="modal-contacto-close" type="button" aria-label="Cerrar">×</button>
+
+    <h3 class="modal-contacto__title" id="modal-contacto-titulo">Mensaje enviado con éxito</h3>
+    <p class="modal-contacto__text" id="modal-contacto-texto">
+      Gracias por escribir. Me pondré en contacto a la brevedad.
+    </p>
+
+    <button class="modal-contacto__button" id="modal-contacto-aceptar" type="button">
+      Aceptar
+    </button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.field__clear').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const field = btn.closest('.field');
+      const control = field.querySelector('.field__control');
+
+      if (control.tagName === 'SELECT') {
+        control.selectedIndex = 0;
+      } else {
+        control.value = '';
+      }
+
+      control.focus();
+      control.dispatchEvent(new Event('input', { bubbles: true }));
+      control.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  });
+
+  const telefono = document.getElementById('telefono');
+
+  telefono.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '');
+
+    if (value.startsWith('56')) {
+      value = value.slice(2);
+    }
+
+    value = value.slice(0, 9);
+
+    if (value.length === 0) {
+      e.target.value = '';
+      return;
+    }
+
+    let formatted = '+56';
+
+    if (value.length > 0) formatted += ' ' + value[0];
+    if (value.length > 1) formatted += ' ' + value.slice(1, 5);
+    if (value.length > 5) formatted += ' ' + value.slice(5, 9);
+
+    e.target.value = formatted;
+  });
+
+  const form = document.getElementById('form-contacto');
+  const btnEnviar = document.getElementById('btn-enviar');
+
+  const modal = document.getElementById('modal-contacto');
+  const modalTexto = document.getElementById('modal-contacto-texto');
+  const modalTitulo = document.getElementById('modal-contacto-titulo');
+  const modalCerrar = document.getElementById('modal-contacto-close');
+  const modalAceptar = document.getElementById('modal-contacto-aceptar');
+  const modalOverlay = modal.querySelector('.modal-contacto__overlay');
+
+  function abrirModal(titulo, texto) {
+    modalTitulo.textContent = titulo;
+    modalTexto.textContent = texto;
+    modal.classList.add('modal-contacto--open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function cerrarModal() {
+    modal.classList.remove('modal-contacto--open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  modalCerrar.addEventListener('click', cerrarModal);
+  modalAceptar.addEventListener('click', cerrarModal);
+  modalOverlay.addEventListener('click', cerrarModal);
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const textoOriginal = btnEnviar.textContent;
+    btnEnviar.disabled = true;
+    btnEnviar.textContent = 'Enviando...';
+
+    try {
+      const formData = new FormData(form);
+
+      const response = await fetch('https://erick-aedo.cl/enviar-contacto.php', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        form.reset();
+        abrirModal(
+          'Mensaje enviado con éxito',
+          'Gracias por escribir. Me pondré en contacto a la brevedad.'
+        );
+      } else {
+        abrirModal(
+          'No se pudo enviar',
+          data.message || 'Ocurrió un problema al enviar el mensaje. Intenta nuevamente.'
+        );
+      }
+    } catch (error) {
+      abrirModal(
+        'No se pudo enviar',
+        'Ocurrió un problema al enviar el mensaje. Intenta nuevamente.'
+      );
+    } finally {
+      btnEnviar.disabled = false;
+      btnEnviar.textContent = textoOriginal;
+    }
+  });
+</script>
